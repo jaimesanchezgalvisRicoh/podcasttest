@@ -38,16 +38,21 @@ export const Plp = () => {
           </Link>
         </Row>
         <hr />
-        {dataPodcast.length > 0 ? (
-          dataPodcast.map((product) => {
-            return (
-              <PodCastCard key={product.id.attributes["im:id"]} {...product} />
-            );
-          })
-        ) : (
-          <Loading />
-        )}
-        {/* <PodCastCard /> */}
+
+        <Grid.Container gap={2}alignItems="center" justify="center">
+          {dataPodcast.length > 0 ? (
+            dataPodcast.map((product) => {
+              return (
+                <PodCastCard
+                  key={product.id.attributes["im:id"]}
+                  {...product}
+                />
+              );
+            })
+          ) : (
+            <Loading />
+          )}
+        </Grid.Container>
       </Grid.Container>
     </Container>
   );
