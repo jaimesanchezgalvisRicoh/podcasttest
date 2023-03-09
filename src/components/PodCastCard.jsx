@@ -1,14 +1,8 @@
 import { useEffect } from "react";
 import { Card, Grid, Text, Image, Row, Spacer } from "@nextui-org/react";
 import { Link } from "react-router-dom";
-import Aos from "aos";
-import "aos/dist/aos.css";
-
 
 const PodCastCard = ({ ...props }) => {
-  useEffect(() => {
-    Aos.init();
-  }, []);
   return (
     <Grid>
       <Link to={props.id.attributes["im:id"]}>
@@ -18,7 +12,6 @@ const PodCastCard = ({ ...props }) => {
             marginBottom: "-60px",
             zIndex: "5",
           }}
-          data-aos="zoom-in"
         >
           <Image
             src={props["im:image"][2].label}
@@ -44,7 +37,6 @@ const PodCastCard = ({ ...props }) => {
             minWidth: "278px",
             alignContent: "center",
           }}
-          data-aos="zoom-in-up"
         >
           <Card.Header css={{}}>
             <Spacer y={1} />
