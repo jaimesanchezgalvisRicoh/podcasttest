@@ -5,7 +5,6 @@ export const getPodCast = async () => {
     const response = await fetch(url);
     const { feed } = await response.json();
     const { entry } = feed;
-    // console.log("entry:", entry);
     return entry;
   } catch (error) {
     console.log(error);
