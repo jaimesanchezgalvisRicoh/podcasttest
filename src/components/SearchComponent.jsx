@@ -4,6 +4,7 @@ import { useQuery } from "react-query";
 import { getPodCast } from "../api/getPodCast";
 import PodCastCard from "./PodCastCard";
 
+
 export const SearchComponent = () => {
   const { data, status } = useQuery("podcast", getPodCast, {
     staleTime: 1000 * 60 * 60 * 24,
