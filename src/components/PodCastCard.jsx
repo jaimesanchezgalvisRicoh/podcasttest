@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { Card, Grid, Text, Image, Row, Spacer } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
