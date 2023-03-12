@@ -12,8 +12,8 @@ export const CardPodcast = ({
 }) => {
   return (
     <Card
-      isPressable
-      isHoverable
+      // isPressable
+      // isHoverable
       css={{
         alignContent: "center",
         flexWrap: "wrap",
@@ -45,6 +45,7 @@ export const CardPodcast = ({
             width: "95%",
             textAlign: "initial",
             marginBottom: "0",
+            maxWidth: "90%",
           }}
           weight="bold"
         >
@@ -67,6 +68,7 @@ export const CardPodcast = ({
           css={{
             paddingTop: "0",
             marginLeft: "25px",
+            maxWidth: "90%",
           }}
         >
           <Text

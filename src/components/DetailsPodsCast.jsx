@@ -27,27 +27,23 @@ export const DetailsPodsCast = () => {
     artistName,
     artworkUrl600,
     feedUrl,
-    trackName,
     collectionName,
-    trackViewUrl,
     trackCount,
-    releaseDate,
-    primaryGenreName,
-    trackTimeMillis,
-    trackPrice,
-    currency,
     collectionId,
+    artistDescription,
   } = results[0];
 
+
+
   return (
-    <Grid.Container gap={3} width="100%">
+    <Grid.Container gap={3} css={{ margin: "0 auto", maxWidth: "90%" }}>
       <Grid xs={12} sm={3}>
         <CardPodcast
           headerImg={artworkUrl600}
           bodyTitle={artistName}
           body={collectionName}
           footerTitle={"Description:"}
-          footer={artistName}
+          footer={artistDescription}
         />
       </Grid>
       <Grid
@@ -59,7 +55,9 @@ export const DetailsPodsCast = () => {
         }}
       >
         <CardPodcast headerTitle={`Episodes: ${trackCount}`} />
-        {collectionId ? <EpisodeTable feedUrl={feedUrl} /> : null}
+        {collectionId ? (
+          <EpisodeTable feedUrl={feedUrl} idPodcast={id} />
+        ) : null}
       </Grid>
     </Grid.Container>
   );

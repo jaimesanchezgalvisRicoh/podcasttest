@@ -8,7 +8,7 @@ export const AppRouter = () => {
     <Routes>
       <Route path="/" element={<Plp />} />
       <Route path="/:id" element={<Pdp />} />
-      <Route path="/:id" element={<DetailsEpisode />} />
+      <Route path="/:id/:id" element={<DetailsEpisode />} />
     </Routes>
   );
 };
