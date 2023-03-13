@@ -11,7 +11,7 @@ export const useEpisodes = (feedUrl) => {
     () => getDetailsEpisodes(feedUrl),
     {
       refetchOnWindowFocus: false,
-      cacheTime: 1000 * 60 * 60 * 24, // 24 hours
+      cacheTime: 1000 * 60 * 60 * 24,
       onSuccess: (data) => {
         setEpisodesData(data);
       },

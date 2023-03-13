@@ -7,6 +7,8 @@ import { EpisodesContext } from "../context/EpisodesContext";
 
 export const DetailsEpisode = () => {
   const { id } = useParams();
+  const { artistName } = useContext(EpisodesContext);
+  console.log(artistName);
 
   const data = useContext(EpisodesContext);
   const episodesData = data?.episodesData?.episodeList;
@@ -28,19 +30,13 @@ export const DetailsEpisode = () => {
           <CardPodcast
             headerImg={episodeData?.thumbnail}
             bodyTitle={episodeData?.title}
-            body={cleanDescription}
+            body={`by ${artistName}`}
+            footerTitle={"Description:"}
+            footer={cleanDescription}
           />
         </Grid>
-        <Grid
-          xs={12}
-          sm={9}
-          direction="column"
-          gap={2}
-        >
-          <CardPodcast
-            headerTitle={episodeData?.title}
-            headerContent={cleanDescription}
-          />
+        <Grid xs={12} sm={9} direction="column" gap={2}>
+          <CardPodcast bodyTitle={episodeData?.title} body={cleanDescription} />
           <audio controls style={{ width: "100%", marginTop: "1rem" }}>
             <source src={episodeData?.audioUrl} type="audio/mpeg" />
             Tu navegador no soporta la reproducción de audio.

@@ -67,7 +67,7 @@ export const CardPodcast = ({
             paddingTop: "0",
             marginLeft: "25px",
             maxWidth: "90%",
-            width:"fit-content"
+            width: "fit-content",
           }}
         >
           <Text
@@ -83,7 +83,7 @@ export const CardPodcast = ({
           <Text
             css={{
               color: "rgb(80 84 86)",
-              marginTop: "0",
+              marginTop: "0.2rem",
             }}
           >
             {body}
@@ -97,6 +97,7 @@ export const CardPodcast = ({
             marginLeft: "20px",
             alignItems: "flex-start",
             paddingTop: "0",
+            width: "91%",
           }}
         >
           <Text
@@ -111,7 +112,7 @@ export const CardPodcast = ({
           <Text
             css={{
               color: "rgb(80 84 86)",
-              margin: "0",
+              marginTop: "0.5rem",
             }}
           >
             {footer}

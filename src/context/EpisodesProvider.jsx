@@ -4,10 +4,13 @@ import { AppRouter } from "../router/AppRouter";
 
 export const EpisodesProvider = ({ children }) => {
   const [episodesData, setEpisodesData] = useState([]);
+  const [artistName, setArtistName] = useState("");
 
   return (
-    <EpisodesContext.Provider value={{ episodesData, setEpisodesData }}>
-      <AppRouter/>
+    <EpisodesContext.Provider
+      value={{ episodesData, setEpisodesData, artistName, setArtistName }}
+    >
+      <AppRouter />
     </EpisodesContext.Provider>
   );
 };

@@ -1,20 +1,27 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getDetailsPodcast } from "../api/getDetailsPodcast";
 import { Grid, Loading } from "@nextui-org/react";
 import EpisodeTable from "./EpisodeTable";
 import { CardPodcast } from "./CardPodcast";
 import { CardLeftPodcast } from "./CardLeftPodcast";
+import { EpisodesContext } from "../context/EpisodesContext";
+
 
 export const DetailsPodsCast = () => {
   const [dataEpisodes, setDataEpisodes] = useState([]);
   const { id } = useParams();
+  const { setArtistName } = useContext(EpisodesContext);
 
   useEffect(() => {
     getDetailsPodcast(id).then((data) => {
       setDataEpisodes(data);
+      const detailsPodcast = JSON.parse(data);
+      const { results } = detailsPodcast;
+      const { artistName } = results[0];
+      setArtistName(artistName);
     });
-  }, [id]);
+  }, [id, setArtistName]);
 
   if (dataEpisodes.length === 0) {
     return <Loading />;
@@ -33,14 +40,13 @@ export const DetailsPodsCast = () => {
     artistDescription,
   } = results[0];
 
-
   return (
     <Grid.Container gap={3} css={{ margin: "0 auto", maxWidth: "90%" }}>
       <Grid xs={12} sm={3}>
         <CardLeftPodcast
           headerImg={artworkUrl600}
-          bodyTitle={artistName}
-          body={collectionName}
+          bodyTitle={collectionName}
+          body={`by ${artistName}`}
           footerTitle={"Description:"}
           footer={artistDescription}
           feedUrl={feedUrl}

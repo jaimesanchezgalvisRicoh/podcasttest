@@ -85,6 +85,7 @@ export const CardLeftPodcast = ({
               color: "rgb(80 84 86)",
               marginBottom: "0",
               marginTop: "0",
+              width: "95%",
             }}
             weight="bold"
           >
@@ -93,7 +94,7 @@ export const CardLeftPodcast = ({
           <Text
             css={{
               color: "rgb(80 84 86)",
-              marginTop: "0",
+              marginTop: "0.2rem",
             }}
           >
             {body}
@@ -122,9 +123,9 @@ export const CardLeftPodcast = ({
           <Text
             css={{
               color: "rgb(80 84 86)",
-              margin: "0",
               width: "fit-content",
               maxWidth: "95%",
+              marginTop: "0.5rem",
             }}
           >
             {cleanDescription}
