@@ -8,7 +8,6 @@ import { EpisodesContext } from "../context/EpisodesContext";
 export const DetailsEpisode = () => {
   const { id } = useParams();
   const { artistName } = useContext(EpisodesContext);
-  console.log(artistName);
 
   const data = useContext(EpisodesContext);
   const episodesData = data?.episodesData?.episodeList;
