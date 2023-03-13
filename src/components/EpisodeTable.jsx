@@ -15,6 +15,9 @@ function EpisodeTable({ feedUrl }) {
   }
 
   const { data } = useEpisodes(feedUrl);
+  if (!data) {
+    return <Loading />;
+  }
   const episodeList = data?.episodeList;
 
   return (
