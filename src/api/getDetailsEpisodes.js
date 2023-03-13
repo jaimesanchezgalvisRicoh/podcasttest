@@ -5,7 +5,8 @@ export const getDetailsEpisodes = async (feedUrl) => {
   const xmlDOM = parser.parseFromString(xmlString, "text/xml");
   const episodes = xmlDOM.querySelectorAll("item");
   const episodeList = [];
-  
+
+  const description = xmlDOM.querySelector("description").textContent;
 
   for (let i = 0; i < episodes.length; i++) {
     const episode = {};
@@ -40,5 +41,5 @@ export const getDetailsEpisodes = async (feedUrl) => {
     episodeList.push(episode);
   }
 
-  return episodeList;
+  return { episodeList, description };
 };

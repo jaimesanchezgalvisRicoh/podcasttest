@@ -1,9 +1,8 @@
-import { Container, Grid, Input, Loading, Row, Text } from "@nextui-org/react";
+import { Container, Grid, Input, Loading, Row } from "@nextui-org/react";
 import { useForm } from "../hooks/useForm";
 import { useQuery } from "react-query";
 import { getPodCast } from "../api/getPodCast";
-import PodCastCard from "./PodCastCard";
-
+import CardPodCastMain from "./CardPodCastMain";
 
 export const SearchComponent = () => {
   const { data, status } = useQuery("podcast", getPodCast, {
@@ -40,7 +39,10 @@ export const SearchComponent = () => {
       <Row>
         <Grid.Container gap={2} alignItems="center" justify="center">
           {results?.map((product) => (
-            <PodCastCard key={product.id.attributes["im:id"]} {...product} />
+            <CardPodCastMain
+              key={product.id.attributes["im:id"]}
+              {...product}
+            />
           ))}
           {status === "loading" && <Loading />}
         </Grid.Container>

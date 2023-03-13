@@ -1,7 +1,5 @@
-import { Table } from "@nextui-org/react";
-import React, { useEffect, useState } from "react";
+import { Loading, Table } from "@nextui-org/react";
 import { Link } from "react-router-dom";
-import { getDetailsEpisodes } from "../api/getDetailsEpisodes";
 import { useEpisodes } from "../hooks/useEpisodes";
 
 function EpisodeTable({ feedUrl }) {
@@ -15,16 +13,19 @@ function EpisodeTable({ feedUrl }) {
     const formattedSeconds = String(remainingSecondsFloor).padStart(2, "0");
     return `${formattedHours}:${formattedMinutes}:${formattedSeconds}`;
   }
+
   const { data } = useEpisodes(feedUrl);
+  const episodeList = data?.episodeList;
 
   return (
     <Table
+      lined
+      selectionMode
       aria-label="Example table with dynamic content"
       css={{
         height: "auto",
         minWidth: "100%",
       }}
-      selectionMode="none"
     >
       <Table.Header>
         <Table.Column>Title</Table.Column>
@@ -32,7 +33,7 @@ function EpisodeTable({ feedUrl }) {
         <Table.Column>Duration</Table.Column>
       </Table.Header>
       <Table.Body>
-        {data?.map((episode, index) => (
+        {episodeList?.map((episode, index) => (
           <Table.Row key={index}>
             <Table.Cell>
               <Link to={`${episode.id}`} key={index}>

@@ -1,6 +1,7 @@
 import { Card, Image, Text } from "@nextui-org/react";
+import { useEpisodes } from "../hooks/useEpisodes";
 
-export const CardPodcast = ({
+export const CardLeftPodcast = ({
   headerImg,
   headerTitle,
   headerContent,
@@ -8,7 +9,17 @@ export const CardPodcast = ({
   body,
   footerTitle,
   footer,
+  feedUrl,
 }) => {
+  
+  const { data } = useEpisodes(feedUrl);
+  const  description  = data?.description;
+
+  const regex = /(<([^>]+)>)/gi;
+  const cleanDescription = description?.replace(regex, "");
+
+  
+
   return (
     <Card
       isHoverable
@@ -67,7 +78,6 @@ export const CardPodcast = ({
             paddingTop: "0",
             marginLeft: "25px",
             maxWidth: "90%",
-            width:"fit-content"
           }}
         >
           <Text
@@ -97,6 +107,7 @@ export const CardPodcast = ({
             marginLeft: "20px",
             alignItems: "flex-start",
             paddingTop: "0",
+            width: "95%",
           }}
         >
           <Text
@@ -112,9 +123,11 @@ export const CardPodcast = ({
             css={{
               color: "rgb(80 84 86)",
               margin: "0",
+              width: "fit-content",
+              maxWidth: "95%",
             }}
           >
-            {footer}
+            {cleanDescription}
           </Text>
         </Card.Footer>
       ) : null}

@@ -1,26 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-
 import { getDetailsPodcast } from "../api/getDetailsPodcast";
-import { Card, Grid, Image, Loading, Text } from "@nextui-org/react";
+import { Grid, Loading } from "@nextui-org/react";
 import EpisodeTable from "./EpisodeTable";
 import { CardPodcast } from "./CardPodcast";
+import { CardLeftPodcast } from "./CardLeftPodcast";
 
 export const DetailsPodsCast = () => {
-  const [data, setData] = useState([]);
+  const [dataEpisodes, setDataEpisodes] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
     getDetailsPodcast(id).then((data) => {
-      setData(data);
+      setDataEpisodes(data);
     });
   }, [id]);
 
-  if (data.length === 0) {
+  if (dataEpisodes.length === 0) {
     return <Loading />;
   }
 
-  const detailsPodcast = JSON.parse(data);
+  const detailsPodcast = JSON.parse(dataEpisodes);
   const { results } = detailsPodcast;
 
   const {
@@ -34,16 +34,16 @@ export const DetailsPodsCast = () => {
   } = results[0];
 
 
-
   return (
     <Grid.Container gap={3} css={{ margin: "0 auto", maxWidth: "90%" }}>
       <Grid xs={12} sm={3}>
-        <CardPodcast
+        <CardLeftPodcast
           headerImg={artworkUrl600}
           bodyTitle={artistName}
           body={collectionName}
           footerTitle={"Description:"}
           footer={artistDescription}
+          feedUrl={feedUrl}
         />
       </Grid>
       <Grid

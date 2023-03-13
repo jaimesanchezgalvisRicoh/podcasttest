@@ -1,7 +1,7 @@
 import { Card, Grid, Text, Image, Row, Spacer } from "@nextui-org/react";
 import { Link } from "react-router-dom";
 
-const PodCastCard = ({ ...props }) => {
+const CardPodCastMain = ({ ...props }) => {
   return (
     <Grid>
       <Link to={props.id.attributes["im:id"]}>
@@ -82,4 +82,4 @@ const PodCastCard = ({ ...props }) => {
   );
 };
 
-export default PodCastCard;
+export default CardPodCastMain;
