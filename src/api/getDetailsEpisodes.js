@@ -32,7 +32,7 @@ export const getDetailsEpisodes = async (feedUrl) => {
           .querySelector("image")
           .getAttribute("href");
       } catch (error) {
-        episode.thumbnail = "/src/static/brandLogo.png";
+        episode.thumbnail = "/assets/DefaultImg.png";
       }
     }
 

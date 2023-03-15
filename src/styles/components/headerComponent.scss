@@ -5,3 +5,13 @@ a img {
   margin-top: 1rem;
   filter: drop-shadow(5px 5px 5px #747272);
 }
+
+@media (width <= 768px) {
+  .date {
+    display: none;
+  }
+
+  .duration {
+    display: none;
+  }
+}
