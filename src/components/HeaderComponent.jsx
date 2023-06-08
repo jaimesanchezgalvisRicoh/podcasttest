@@ -26,7 +26,7 @@ const HeaderComponent = () => {
             }}
             weight="bold"
           >
-            PodCaster:
+            PodCasterr:
           </Text>
         </Link>
       </Row>
